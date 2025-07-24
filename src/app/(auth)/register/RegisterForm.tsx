@@ -1,6 +1,7 @@
 'use client'
 import FormInput from '@/components/ui/FormInput'
 import { REGISTER_CONFIG } from '@/shared/configs/FormConfigs'
+import { PAGES } from '@/shared/constants/routes'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -38,7 +39,7 @@ export default function RegisterForm() {
                     Register
                 </button>
                 <p className="text-gray-500 text-sm">
-                    Do you have an account? <Link href="/register" className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72]">Login</Link>
+                    Do you have an account? <Link href={PAGES.LOGIN} className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72]">Login</Link>
                 </p>
             </div>
         </form>

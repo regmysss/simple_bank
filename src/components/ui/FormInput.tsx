@@ -7,6 +7,7 @@ interface FormInputProps {
     required?: boolean;
     pattern?: string;
     value: string;
+    placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -20,7 +21,7 @@ export default function FormInput(props: FormInputProps) {
             </label>
             <input
                 {...rest}
-                className="w-full outline-none border border-gray-500 rounded-lg p-2"
+                className="w-full outline-none border-1 border-gray-500 rounded-lg p-2"
             />
         </div>
     )

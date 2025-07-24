@@ -5,6 +5,7 @@ export const LOGIN_CONFIG = [
         type: "email",
         required: true,
         pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/",
+        placeholder: "example@gmail.com",
     },
     {
         label: "Password",
@@ -12,6 +13,7 @@ export const LOGIN_CONFIG = [
         type: "password",
         required: true,
         pattern: ".{8,24}",
+        placeholder: "8 symbols at least",
     },
 ]
 
@@ -22,6 +24,7 @@ export const REGISTER_CONFIG = [
         type: "text",
         required: true,
         pattern: ".{2,50}",
+        placeholder: "John Doe",
     },
     {
         label: "Email",
@@ -29,6 +32,7 @@ export const REGISTER_CONFIG = [
         type: "email",
         required: true,
         pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/",
+        placeholder: "example@gmail.com",
     },
     {
         label: "Password",
@@ -36,11 +40,13 @@ export const REGISTER_CONFIG = [
         type: "password",
         required: true,
         pattern: ".{8,24}",
+        placeholder: "8 symbols at least",
     },
     {
         label: "Confirm Password",
         name: "confirmPassword",
         type: "password",
         required: true,
+        placeholder: "Repeat your password",
     },
 ]
