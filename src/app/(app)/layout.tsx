@@ -7,8 +7,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Navigation />
             <div className="flex-1 flex flex-col">
                 <Header />
-                <main>
-                    {children}
+                <main className="p-5 mt-5">
+                    <div className="max-w-[900px] mx-auto w-full">
+                        {children}
+                    </div>
                 </main>
             </div>
         </div>
