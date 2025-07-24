@@ -20,15 +20,16 @@ export default function RegisterForm() {
             <div className="bg-white w-full py-4 px-8 rounded-[20px] flex flex-col items-center">
                 <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72] mb-4">Register</h1>
                 {
-                    REGISTER_CONFIG.map((input) => (
-                        <FormInput
+                    REGISTER_CONFIG.map((input) => {
+                        const props = input.name === 'confirmPassword' ? { ...input, pattern: formData.password } : input;
+
+                        return <FormInput
                             key={input.name}
-                            {...input}
+                            {...props}
                             value={formData[input.name as keyof typeof formData]}
                             onChange={(e) => setFormData({ ...formData, [input.name]: e.target.value })}
-                            required={formData.password === formData.confirmPassword}
                         />
-                    ))
+                    })
                 }
                 <button
                     type="submit"
