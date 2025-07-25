@@ -5,6 +5,6 @@ export default function Breadcrumb() {
     const pathname = usePathname();
 
     return (
-        <div>Breadcrumb</div>
+        <div></div>
     )
 }

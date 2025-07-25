@@ -6,11 +6,11 @@ export default function Page() {
         <div className="flex flex-col gap-8 w-full">
             <h2 className="text-lg font-medium">Account</h2>
             <AccountBanner isWelcome={false} />
-            <div className="flex items-center justify-between">
+            <section className="flex items-center justify-between">
                 <h3 className="text-xl text-gray-500">John Doe</h3>
                 <p className="text-3xl font-bold">ID: 1235346451234</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4 text-[#2754C8]">
+            </section>
+            <section className="grid grid-cols-2 gap-4 text-[#2754C8]">
                 <div className="bg-white flex items-center justify-between p-5 rounded-lg">
                     <div className="flex items-center gap-4">
                         <Bell />
@@ -38,16 +38,16 @@ export default function Page() {
                         Change
                     </button>
                 </div>
-                <div className="bg-white flex items-center justify-between p-5 rounded-lg text-red-500">
+                <button className="bg-white flex items-center justify-between p-5 rounded-lg text-red-500 cursor-pointer">
                     <div className="flex items-center gap-4">
                         <LogOut />
                         <p className="text-lg font-medium">Log Out</p>
                     </div>
-                </div>
-            </div>
-            <div className="text-center text-gray-500 mt-8">
+                </button>
+            </section>
+            <footer className="text-center text-gray-500 mt-8">
                 <p>User since 2023</p>
-            </div>
+            </footer>
         </div>
     );
 }
