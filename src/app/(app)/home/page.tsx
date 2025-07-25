@@ -1,4 +1,5 @@
 import AccountBanner from "@/components/ui/AccountBanner";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import RecentTransactionItem from "@/components/ui/TransactionItem";
 import { HISTORY } from "@/shared/constants/history";
 import { PAGES } from "@/shared/constants/routes";
@@ -7,7 +8,7 @@ import Link from "next/link";
 export default function Page() {
     return (
         <div className="flex flex-col gap-8 w-full">
-            <h2 className="text-lg font-medium">Home</h2>
+            <Breadcrumb />
             <AccountBanner />
             <section>
                 <div className="flex items-center justify-between mb-8">

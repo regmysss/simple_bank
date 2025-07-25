@@ -8,8 +8,8 @@ export default function RecentTransactionItem({ transaction }: { transaction: IT
                 <div className="size-11 flex items-center justify-center rounded-full bg-[#EEF2FF]">
                     {
                         transaction.type === 'deposit'
-                            ? (<ArrowBigDown className="text-[#19BD56]" />)
-                            : (<ArrowBigUp className="text-[#2754C8]" />)
+                            ? (<ArrowBigDown className="text-[#19BD56] size-8" />)
+                            : (<ArrowBigUp className="text-[#2754C8] size-8" />)
                     }
                 </div>
                 <div>
