@@ -7,4 +7,5 @@ export const PAGES = {
     DEPOSIT_MONEY: "/deposit-money",
     SEND_MONEY: "/send-money",
     HISTORY: "/history",
+    ACCOUNT: "/home/account",
 }
