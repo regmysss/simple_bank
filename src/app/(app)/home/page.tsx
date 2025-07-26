@@ -3,11 +3,17 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import RecentTransactionItem from "@/components/ui/TransactionItem";
 import { HISTORY } from "@/shared/constants/history";
 import { PAGES } from "@/shared/constants/routes";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Home",
+    description: "Welcome to Simple Bank, your personal finance management app."
+}
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-8 w-full">
+        <div className="flex flex-col gap-8">
             <Breadcrumb />
             <AccountBanner />
             <section>

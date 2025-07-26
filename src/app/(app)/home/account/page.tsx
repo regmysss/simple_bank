@@ -4,7 +4,7 @@ import { ArrowRightLeft, Bell, LockKeyhole, LogOut } from "lucide-react";
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-8 w-full">
+        <div className="flex flex-col gap-8">
             <Breadcrumb />
             <AccountBanner isWelcome={false} />
             <section className="flex items-center justify-between">

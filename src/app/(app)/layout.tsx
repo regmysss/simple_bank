@@ -7,8 +7,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Navigation />
             <div className="flex-1 flex flex-col">
                 <Header />
-                <main className="p-5 overflow-y-auto">
-                    <div className="max-w-[900px] mx-auto w-full">
+                <main className="h-full p-5 overflow-y-auto">
+                    <div className="max-w-[900px] mx-auto size-full">
                         {children}
                     </div>
                 </main>
