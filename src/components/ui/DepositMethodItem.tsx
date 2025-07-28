@@ -1,22 +1,21 @@
 interface DepositMethodItemProps {
-    depositMethod: {
-        label: string;
-        value: string;
-        defaultChecked?: boolean;
-    };
+    label: string;
+    defaultChecked?: boolean;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 
-export default function DepositMethodItem({ depositMethod }: DepositMethodItemProps) {
+export default function DepositMethodItem(props: DepositMethodItemProps) {
+    const { label, ...rest } = props;
+
     return (
         <label className="bg-white p-4 rounded-sm flex items-center justify-between gap-2 cursor-pointer">
-            {depositMethod.label}
+            {label}
             <input
                 className="size-5"
                 type="radio"
                 name="payment-method"
-                value={depositMethod.value}
-                defaultChecked={depositMethod.defaultChecked}
+                {...rest}
             />
         </label>
     )

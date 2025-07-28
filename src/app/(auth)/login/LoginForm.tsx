@@ -1,6 +1,7 @@
 'use client'
-import FormInput from "@/components/ui/FormInput";
-import { LOGIN_CONFIG } from "@/shared/configs/FormConfigs";
+import AuthFormInput from "@/components/ui/AuthFormInput";
+import GradientButton from "@/components/ui/GradientButton";
+import { LOGIN_CONFIG } from "@/shared/configs/AuthFormConfigs";
 import { PAGES } from "@/shared/constants/routes";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,7 +21,7 @@ export default function LoginForm() {
                 <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72] mb-4">Login</h1>
                 {
                     LOGIN_CONFIG.map((input) => (
-                        <FormInput
+                        <AuthFormInput
                             key={input.name}
                             {...input}
                             value={formData[input.name as keyof typeof formData]}
@@ -31,12 +32,11 @@ export default function LoginForm() {
                 <Link href={PAGES.FORGOT_PASSWORD} className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72] mb-4 text-sm w-full text-right">
                     Forgot Password?
                 </Link>
-                <button
+                <GradientButton
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white font-semibold py-2 rounded-lg cursor-pointer mb-4"
                 >
                     Login
-                </button>
+                </GradientButton>
                 <p className="text-gray-500 text-sm">
                     Don&apos;t have an account? <Link href={PAGES.REGISTER} className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72]">Register</Link>
                 </p>

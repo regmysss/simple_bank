@@ -1,5 +1,6 @@
 'use client';
-import FormInput from '@/components/ui/FormInput'
+import AuthFormInput from '@/components/ui/AuthFormInput'
+import GradientButton from '@/components/ui/GradientButton';
 import { PAGES } from '@/shared/constants/routes';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -17,7 +18,7 @@ export default function ForgotPasswordForm() {
                 <p className="text-gray-500 text-sm mb-4 text-center">
                     Enter your email address below and we will send you a link to reset your password.
                 </p>
-                <FormInput
+                <AuthFormInput
                     label='Email'
                     name="email"
                     type="email"
@@ -27,12 +28,11 @@ export default function ForgotPasswordForm() {
                     pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
                     placeholder="example@gmail.com"
                 />
-                <button
+                <GradientButton
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white font-semibold py-2 rounded-lg cursor-pointer mb-4"
                 >
                     Reset Password
-                </button>
+                </GradientButton>
                 <p className="text-gray-500 text-sm">
                     Remember your password? <Link href={PAGES.LOGIN} className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72]">Login</Link>
                 </p>

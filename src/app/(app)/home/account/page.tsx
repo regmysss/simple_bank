@@ -1,11 +1,9 @@
 import AccountBanner from "@/components/ui/AccountBanner";
-import Breadcrumb from "@/components/ui/Breadcrumb";
 import { ArrowRightLeft, Bell, LockKeyhole, LogOut } from "lucide-react";
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-8">
-            <Breadcrumb />
+        <>
             <AccountBanner isWelcome={false} />
             <section className="flex items-center justify-between">
                 <h3 className="text-xl text-gray-500">John Doe</h3>
@@ -49,6 +47,6 @@ export default function Page() {
             <footer className="text-center text-gray-500 mt-8">
                 <p>User since 2023</p>
             </footer>
-        </div>
+        </>
     );
 }

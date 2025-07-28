@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface FormInputProps {
+interface AuthFormInputProps {
     label: string;
     name: string;
     type: string;
@@ -11,7 +11,7 @@ interface FormInputProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function FormInput(props: FormInputProps) {
+export default function AuthFormInput(props: AuthFormInputProps) {
     const { label, ...rest } = props;
 
     return (

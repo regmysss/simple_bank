@@ -1,6 +1,5 @@
 import AccountBanner from "@/components/ui/AccountBanner";
-import Breadcrumb from "@/components/ui/Breadcrumb";
-import RecentTransactionItem from "@/components/ui/TransactionItem";
+import TransactionItem from "@/components/ui/TransactionItem";
 import { HISTORY } from "@/shared/constants/history";
 import { PAGES } from "@/shared/constants/routes";
 import type { Metadata } from "next";
@@ -13,8 +12,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-8">
-            <Breadcrumb />
+        <>
             <AccountBanner />
             <section>
                 <div className="flex items-center justify-between mb-8">
@@ -26,16 +24,17 @@ export default function Page() {
                         See all
                     </Link>
                 </div>
-                <section>
-                    <ul>
-                        {
-                            HISTORY.map((transaction) => (
-                                <li key={transaction.id} className="mb-4"><RecentTransactionItem transaction={transaction} /></li>
-                            ))
-                        }
-                    </ul>
-                </section>
+                <ul>
+                    {
+                        HISTORY.map((transaction) => (
+                            <TransactionItem
+                                key={transaction.id}
+                                transaction={transaction}
+                            />
+                        ))
+                    }
+                </ul>
             </section>
-        </div>
+        </>
     );
 }

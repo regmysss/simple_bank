@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+html,
 body {
-  @apply bg-[#F9FAFB] m-0 p-0;
+  @apply bg-[#F9FAFB] m-0 p-0 size-full;
 }

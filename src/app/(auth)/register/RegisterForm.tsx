@@ -1,6 +1,7 @@
 'use client'
-import FormInput from '@/components/ui/FormInput'
-import { REGISTER_CONFIG } from '@/shared/configs/FormConfigs'
+import AuthFormInput from '@/components/ui/AuthFormInput'
+import GradientButton from '@/components/ui/GradientButton'
+import { REGISTER_CONFIG } from '@/shared/configs/AuthFormConfigs'
 import { PAGES } from '@/shared/constants/routes'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -24,7 +25,7 @@ export default function RegisterForm() {
                     REGISTER_CONFIG.map((input) => {
                         const props = input.name === 'confirmPassword' ? { ...input, pattern: formData.password } : input;
 
-                        return <FormInput
+                        return <AuthFormInput
                             key={input.name}
                             {...props}
                             value={formData[input.name as keyof typeof formData]}
@@ -32,12 +33,11 @@ export default function RegisterForm() {
                         />
                     })
                 }
-                <button
+                <GradientButton
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white font-semibold py-2 rounded-lg cursor-pointer mb-4"
                 >
                     Register
-                </button>
+                </GradientButton>
                 <p className="text-gray-500 text-sm">
                     Do you have an account? <Link href={PAGES.LOGIN} className="text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72]">Login</Link>
                 </p>
