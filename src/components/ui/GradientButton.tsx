@@ -1,19 +1,20 @@
-import React from 'react'
+import { twMerge } from "tailwind-merge";
 
 interface GradientButtonProps {
     children: React.ReactNode;
     type?: 'submit' | 'button' | 'reset';
     onClick?: () => void;
     disabled?: boolean;
+    className?: string;
 }
 
 
 export default function GradientButton(props: GradientButtonProps) {
-    const { children, ...rest } = props;
+    const { children, className, ...rest } = props;
 
     return (
         <button
-            className="w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white py-3 rounded-lg cursor-pointer mb-4"
+            className={twMerge("w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white py-3 rounded-lg cursor-pointer mb-4", className)}
             {...rest}
         >
             {children}

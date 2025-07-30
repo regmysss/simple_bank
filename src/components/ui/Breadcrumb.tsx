@@ -27,7 +27,7 @@ export default function Breadcrumb() {
                         <Fragment key={index}>
                             <span
 
-                                className={index < segments.length - 1 ? "text-gray-500" : "text-black font-medium"}
+                                className={index < segments.length - 1 ? "text-gray-500 font-light" : "text-black font-medium"}
                             >
                                 {segment}
                             </span>

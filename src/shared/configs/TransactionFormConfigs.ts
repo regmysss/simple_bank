@@ -24,3 +24,34 @@ export const SEND_MONEY_CONFIG = [
         required: false,
     }
 ]
+
+export const DEPOSIT_MONEY_ATM_CARD_CONFIG = [
+    {
+        label: "Card Number",
+        name: "card-number",
+        type: "text",
+        placeholder: "XXXX XXXX XXXX XXXX",
+        required: true,
+    },
+    {
+        label: "Card Expiry Date",
+        name: "card-expiry",
+        type: "text",
+        placeholder: "MM/YY",
+        required: true,
+    },
+    {
+        label: "CVV",
+        name: "card-cvv",
+        type: "text",
+        placeholder: "XXX",
+        required: true,
+    },
+    {
+        label: "Card PIN",
+        name: "card-pin",
+        type: "password",
+        placeholder: "XXXX",
+        required: true,
+    }
+]
