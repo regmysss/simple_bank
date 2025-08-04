@@ -5,14 +5,12 @@ interface AuthFormInputProps {
     name: string;
     type: string;
     required?: boolean;
-    pattern?: string;
-    value: string;
     placeholder: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    children?: React.ReactNode;
 }
 
 export default function AuthFormInput(props: AuthFormInputProps) {
-    const { label, ...rest } = props;
+    const { label, children, ...rest } = props;
 
     return (
         <div className="flex flex-col gap-2 w-full mb-4">
@@ -23,6 +21,7 @@ export default function AuthFormInput(props: AuthFormInputProps) {
                 {...rest}
                 className="w-full outline-none border-1 border-gray-500 rounded-lg p-2"
             />
+            {children}
         </div>
     )
 }

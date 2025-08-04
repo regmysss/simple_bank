@@ -14,7 +14,7 @@ export default function GradientButton(props: GradientButtonProps) {
 
     return (
         <button
-            className={twMerge("w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white py-3 rounded-lg cursor-pointer mb-4", className)}
+            className={twMerge("w-full bg-gradient-to-r from-[#2754C8] to-[#110F72] text-white py-3 rounded-lg cursor-pointer mb-4 disabled:opacity-50", className)}
             {...rest}
         >
             {children}

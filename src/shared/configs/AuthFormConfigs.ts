@@ -20,10 +20,9 @@ export const LOGIN_CONFIG = [
 export const REGISTER_CONFIG = [
     {
         label: "Full Name",
-        name: "fullName",
+        name: "name",
         type: "text",
         required: true,
-        pattern: ".{2,50}",
         placeholder: "John Doe",
     },
     {
@@ -31,7 +30,6 @@ export const REGISTER_CONFIG = [
         name: "email",
         type: "email",
         required: true,
-        pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/",
         placeholder: "example@gmail.com",
     },
     {
@@ -39,7 +37,6 @@ export const REGISTER_CONFIG = [
         name: "password",
         type: "password",
         required: true,
-        pattern: ".{8,24}",
         placeholder: "8 symbols at least",
     },
     {

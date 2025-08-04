@@ -1,66 +1,50 @@
 'use client'
+import { signUp } from '@/app/actions/auth'
 import AuthFormInput from '@/components/ui/AuthFormInput'
 import GradientButton from '@/components/ui/GradientButton'
 import { REGISTER_CONFIG } from '@/shared/configs/AuthFormConfigs'
 import { PAGES } from '@/shared/constants/routes'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useActionState, useEffect } from 'react'
 
 export default function RegisterForm() {
-    const router = useRouter();
+    const router = useRouter()
+    const [state, action, pending] = useActionState(signUp, undefined);
 
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    })
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const response = await fetch('/api/user', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                password: formData.password
-            })
-        })
-
-        if (response.ok) {
+    useEffect(() => {
+        if (state?.success && state.redirectTo) {
             router.push(PAGES.LOGIN);
         }
-        else {
-            console.error('Failed to register user!');
-        }
-    }
+    }, [state?.success, state?.redirectTo, router]);
 
     return (
         <form
             className="bg-white/50 p-3 rounded-4xl max-w-[500px] w-full"
-            onSubmit={handleSubmit}
+            action={action}
         >
             <div className="bg-white w-full py-4 px-8 rounded-[20px] flex flex-col items-center">
                 <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2754C8] to-[#110F72] mb-4">Register</h1>
                 {
-                    REGISTER_CONFIG.map((input) => {
-                        const props = input.name === 'confirmPassword' ? { ...input, pattern: formData.password } : input;
-
-                        return <AuthFormInput
+                    REGISTER_CONFIG.map((input) =>
+                        <AuthFormInput
                             key={input.name}
-                            {...props}
-                            value={formData[input.name as keyof typeof formData] ?? ''}
-                            onChange={(e) => setFormData({ ...formData, [input.name]: e.target.value })}
-                        />
-                    })
+                            {...input}
+                        >
+                            {
+                                state?.errors?.[input.name as keyof typeof state.errors] &&
+                                <p className='text-red-500 text-sm'>{state.errors[input.name as keyof typeof state.errors]}</p>
+                            }
+                        </AuthFormInput>
+                    )
+                }
+                {
+                    state?.errors?.global &&
+                    <p className='text-red-500 text-sm mb-4'>{state.errors.global}</p>
                 }
                 <GradientButton
                     type="submit"
+                    disabled={pending}
                 >
                     Register
                 </GradientButton>
