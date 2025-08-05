@@ -1,5 +1,5 @@
 'use client'
-import { signUp } from '@/app/actions/auth'
+import { signUp } from '@/actions/auth'
 import AuthFormInput from '@/components/ui/AuthFormInput'
 import GradientButton from '@/components/ui/GradientButton'
 import { REGISTER_CONFIG } from '@/shared/configs/AuthFormConfigs'

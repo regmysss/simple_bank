@@ -1,7 +1,10 @@
-import AccountBanner from "@/components/ui/AccountBanner";
-import { ArrowRightLeft, Bell, LockKeyhole, LogOut } from "lucide-react";
+'use client'
+import AccountBanner from '@/components/ui/AccountBanner'
+import { ArrowRightLeft, Bell, LockKeyhole, LogOut } from 'lucide-react'
+import { signOut } from '@/actions/auth'
+import React from 'react'
 
-export default function Page() {
+export default function AccountPage() {
     return (
         <>
             <AccountBanner isWelcome={false} />
@@ -37,7 +40,10 @@ export default function Page() {
                         Change
                     </button>
                 </div>
-                <button className="bg-white flex items-center justify-between p-5 rounded-lg text-red-500 cursor-pointer">
+                <button
+                    className="bg-white flex items-center justify-between p-5 rounded-lg text-red-500 cursor-pointer"
+                    onClick={async () => await signOut()}
+                >
                     <div className="flex items-center gap-4">
                         <LogOut />
                         <p className="text-lg font-medium">Log Out</p>
@@ -48,5 +54,5 @@ export default function Page() {
                 <p>User since 2023</p>
             </footer>
         </>
-    );
+    )
 }
