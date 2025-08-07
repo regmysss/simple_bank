@@ -3,14 +3,20 @@ import AccountBanner from '@/components/ui/AccountBanner'
 import { ArrowRightLeft, Bell, LockKeyhole, LogOut } from 'lucide-react'
 import { signOut } from '@/actions/auth'
 import React from 'react'
+import useAccount from '@/hooks/useAccount'
 
 export default function AccountPage() {
+    const { account } = useAccount();
+    const userCreatedAt = new Date(account.user.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+    });
+
     return (
         <>
             <AccountBanner isWelcome={false} />
             <section className="flex items-center justify-between">
-                <h3 className="text-xl text-gray-500">John Doe</h3>
-                <p className="text-3xl font-bold">ID: 1235346451234</p>
+                <h3 className="text-xl text-gray-500">{account.user.fullname}</h3>
+                <p className="text-3xl font-bold">ID: {account.id}</p>
             </section>
             <section className="grid grid-cols-2 gap-4 text-[#2754C8]">
                 <div className="bg-white flex items-center justify-between p-5 rounded-lg">
@@ -51,7 +57,7 @@ export default function AccountPage() {
                 </button>
             </section>
             <footer className="text-center text-gray-500 mt-8">
-                <p>User since 2023</p>
+                <p>User since {userCreatedAt}</p>
             </footer>
         </>
     )

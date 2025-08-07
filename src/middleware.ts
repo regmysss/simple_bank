@@ -21,7 +21,7 @@ export default async function middleware(req: NextRequest) {
     if (
         isPublic &&
         session?.userId &&
-        !req.nextUrl.pathname.startsWith('/dashboard')
+        !req.nextUrl.pathname.startsWith(PAGES.HOME)
     ) {
         await updateSession();
         return NextResponse.redirect(new URL(PAGES.HOME, req.nextUrl))

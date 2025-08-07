@@ -58,13 +58,20 @@ export async function signUp(state: FormState, formData: FormData) {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await db.user.create({
-            data: {
-                fullname,
-                email,
-                password: hashedPassword,
-            },
-        });
+        await db.user.create(
+            {
+                data: {
+                    fullname,
+                    email,
+                    password: hashedPassword,
+                    account: {
+                        create: {
+                            balance: 0,
+                        }
+                    }
+                },
+            }
+        );
 
         return {
             success: true,
